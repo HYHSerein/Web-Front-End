@@ -76,19 +76,22 @@
                                     <el-input v-model="data.info.address" readonly class="readonly-input" />
                                 </el-form-item>
                             </el-col>
-                            <el-col :span="8">
+                            <!-- <el-col :span="8">
                                 <el-form-item label="备注">
                                     <el-input v-model="data.info.dept" readonly class="readonly-input" />
                                 </el-form-item>
-                            </el-col>
+                            </el-col> -->
                         </el-row>
                     </el-form>
                 </div>
 
                 <div class="info-right">
-                    <div class="avatar-container">
-                        <img :src="data.imgStr" alt="个人照片" class="person-avatar" />
-                        <div class="avatar-name">{{ data.info.name }}</div>
+                    <div class="photo-container">
+                        <div class="photo-label">个人照片</div>
+                        <div class="photo-wrapper">
+                            <img :src="data.imgStr" alt="个人照片" class="person-photo" />
+                            <div class="photo-name">{{ data.info.name }}</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -515,34 +518,47 @@ const resizeChart = (): void => {
     align-items: flex-start;
 }
 
-.avatar-container {
-    text-align: center;
-}
+// .avatar-container {
+//     text-align: center;
+// }
 
-.student-avatar {
-    width: 160px;
-    height: 200px;
-    border-radius: 12px;
-    object-fit: cover;
-    border: 4px solid #f0f2f5;
-    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
-    transition: all 0.3s ease;
+// .student-avatar {
+//     width: 160px;
+//     height: 200px;
+//     border-radius: 12px;
+//     object-fit: cover;
+//     border: 4px solid #f0f2f5;
+//     box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
+//     transition: all 0.3s ease;
 
-    &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
-    }
-}
+//     &:hover {
+//         transform: scale(1.05);
+//         box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+//     }
+// }
 
-.avatar-name {
-    margin-top: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #2c3e50;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+// .avatar-name {
+//     margin-top: 12px;
+//     font-size: 16px;
+//     font-weight: 600;
+//     color: #2c3e50;
+//     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+//     -webkit-background-clip: text;
+//     -webkit-text-fill-color: transparent;
+//     background-clip: text;
+// }
+
+.base-table-form {
+  :deep(.el-form-item) {
+    margin-bottom: 32px;   // 想多小就写多小
+  }
+  :deep(.el-form-item__label) {
+    line-height: 38px;    // 让标签行高与输入框一致
+  }
+  /* 可选：再把输入框高度压一点 */
+  :deep(.el-input__wrapper) {
+    padding: 4px 8px;
+  }
 }
 
 /* 表单样式 */

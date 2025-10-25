@@ -6,8 +6,8 @@ import {
     ID_MAIN_PAGE_PRESENTER,
     ID_INFO_SERVICE, ID_SYSTEM_SERVICE, ID_PERSON_SERVICE, ID_TEACHING_SERVICE,
     ID_DICTIONARY_MANAGE_PRESENTER, ID_MENU_MANAGE_PRESENTER,
-    ID_PASSWORD_PRESENTER, ID_SYSTEM_INTRODUCE_PRESENTER, ID_STUDENT_INTRODUCE_PRESENTER,
-    ID_STUDENT_PRESENTER, ID_FAMILY_MEMBER_PRESENTER,
+    ID_PASSWORD_PRESENTER, ID_SYSTEM_INTRODUCE_PRESENTER, ID_STUDENT_INTRODUCE_PRESENTER, ID_TEACHER_INTRODUCE_PRESENTER,
+    ID_STUDENT_PRESENTER, ID_TEACHER_PRESENTER, ID_FAMILY_MEMBER_PRESENTER,
     ID_COURSE_PRESENTER, ID_SCORE_PRESENTER,
 } from './types';
 import { ILoginService } from '~/infrastructure/boundaries/login-service';
@@ -41,9 +41,11 @@ import { MenuManagePresenter } from '~/domain/presenters/menu-manage-presenter';
 
 import { PasswordPresenter } from '~/domain/presenters/password-presenter';
 import { StudentIntroducePresenter } from '~/domain/presenters/student-introduce-presenter';
+import { TeacherIntroducePresenter } from '~/domain/presenters/teacher-introduce-presenter';
 import { SystemIntroducePresenter } from '~/domain/presenters/system-introduce-presenter';
 
 import { StudentPresenter } from '~/domain/presenters/student-presenter';
+import { TeacherPresenter } from '~/domain/presenters/teacher-presenter';
 import { FamilyMemberPresenter } from '~/domain/presenters/family-member-presenter';
 
 import { CoursePresenter } from '~/domain/presenters/course-presenter';
@@ -72,9 +74,11 @@ container.bind<MenuManagePresenter>(ID_MENU_MANAGE_PRESENTER).to(MenuManagePrese
 
 container.bind<PasswordPresenter>(ID_PASSWORD_PRESENTER).to(PasswordPresenter).inSingletonScope();
 container.bind<StudentIntroducePresenter>(ID_STUDENT_INTRODUCE_PRESENTER).to(StudentIntroducePresenter).inSingletonScope();
+container.bind<TeacherIntroducePresenter>(ID_TEACHER_INTRODUCE_PRESENTER).to(TeacherIntroducePresenter).inSingletonScope();
 container.bind<SystemIntroducePresenter>(ID_SYSTEM_INTRODUCE_PRESENTER).to(SystemIntroducePresenter).inSingletonScope();
 
 container.bind<StudentPresenter>(ID_STUDENT_PRESENTER).to(StudentPresenter).inSingletonScope();
+container.bind<TeacherPresenter>(ID_TEACHER_PRESENTER).to(TeacherPresenter).inSingletonScope();
 container.bind<FamilyMemberPresenter>(ID_FAMILY_MEMBER_PRESENTER).to(FamilyMemberPresenter).inSingletonScope();
 
 container.bind<CoursePresenter>(ID_COURSE_PRESENTER).to(CoursePresenter).inSingletonScope();
