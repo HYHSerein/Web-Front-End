@@ -72,7 +72,19 @@ export class PersonServiceImpl implements IPersonService {
         });
         return res as DataResponse;
     }
-    //获取教师列表数据后台数据请求方法
+
+    //获取教师分页数据后台数据请求方法
+    public async getTeacherPageData(
+        numName: String | null,
+        currentPage: number
+    ): Promise<DataResponse> {
+        const res = await this.requestService.generalRequest("/api/teacher/getTeacherPageData", {
+            numName: numName,
+            currentPage: currentPage,
+        });
+        return res as DataResponse;
+    }
+    //获取教师数据后台数据请求方法
     public async getTeacherList(numName: String | null): Promise<[]> {
         const res = await this.requestService.generalRequest("/api/teacher/getTeacherList", {
             numName: numName,
@@ -90,7 +102,7 @@ export class PersonServiceImpl implements IPersonService {
     }
     //保存教师基本信息后台数据请求方法
     public async teacherEditSave(
-        teracherId: number,
+        personId: number | null,
         form: TeacherItem
     ): Promise<DataResponse> {
         const res = await this.requestService.generalRequest("/api/teacher/teacherEditSave", {

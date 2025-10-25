@@ -22,16 +22,36 @@ export class InfoServiceImpl implements IInfoService {
         });
         return res as DataResponse;
     }
-    //获取学生照片数据后台数据请求方法
-    public async getPhotoImageStr(
-        fileName: String
+    //获取教师个人简介信息后台数据请求方法
+    public async getTeacherIntroduceData(
+        personId: number | null
     ): Promise<DataResponse> {
-        const res = await this.requestService.generalRequest("/api/base/getPhotoImageStr", {
-            fileName: fileName,
+        const res = await this.requestService.generalRequest("/api/teacher/getTeacherIntroduceData", {
+            personId: personId,
         });
         return res as DataResponse;
     }
-    //上传学生照片数据后台数据请求方法
+
+    //获取人员照片数据后台数据请求方法
+    // public async getPhotoImageStr(
+    //     fileName: String
+    // ): Promise<DataResponse> {
+    //     const res = await this.requestService.generalRequest("/api/base/getPhotoImageStr", {
+    //         fileName: fileName,
+    //     });
+    //     return res as DataResponse;
+    // }
+
+    // 真正的从数据库获取后台照片的方法
+    public async getPhotoImageStr(
+        personId: number, // 修正参数名和类型（若后端personId是数字，可改为number）
+    ): Promise<DataResponse> {
+        const res = await this.requestService.generalRequest("/api/base/getPhotoImageStr", {
+            personId: personId,
+        });
+        return res as DataResponse;
+    }
+    //上传人员照片数据后台数据请求方法
     public async uploadPhoto(remoteFile: string, file: any): Promise<any> {
         const formData = new FormData();
         formData.append("file", file);

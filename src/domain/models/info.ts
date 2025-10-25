@@ -1,5 +1,6 @@
 import { OptionItem } from "~/infrastructure/models/base";
 import { StudentItem } from "~/domain/models/person";
+import { TeacherItem } from "~/domain/models/person";
 import { ScoreItem } from "~/domain/models/teaching";
 export interface PasswordData {
     oldPassword: string;
@@ -12,6 +13,12 @@ export interface StudentIntroduceData {
     feeList: OptionItem[];
     markList: OptionItem[];
     scoreList: ScoreItem[];
+    personId: number | null;
+    imgStr: string;
+}
+export interface TeacherIntroduceData {
+    authHeader: any;
+    info: TeacherItem;
     personId: number | null;
     imgStr: string;
 }
