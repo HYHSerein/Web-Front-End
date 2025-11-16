@@ -90,7 +90,7 @@ export class PersonServiceImpl implements IPersonService {
     }
     //保存教师基本信息后台数据请求方法
     public async teacherEditSave(
-        teracherId: number,
+        personId: number,
         form: TeacherItem
     ): Promise<DataResponse> {
         const res = await this.requestService.generalRequest("/api/teacher/teacherEditSave", {
