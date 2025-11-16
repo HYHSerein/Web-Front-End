@@ -37,3 +37,25 @@ export interface ScoreData {
     studentList: OptionItem[];
     courseList: OptionItem[];
 }
+
+export interface CourseSectionItem {
+    courseSectionId: number;
+    num: string;
+    optional: boolean;
+    place: string;
+    teacherId: number;
+    teacherName: string;
+    courseId: number;
+    courseName: string;
+    time: number;
+    status: boolean;
+}
+export interface CourseSectionData {
+    num: string;
+    dataList: CourseSectionItem[];
+    courseSectionSelectList: OptionItem[];
+    teacherSelectList: OptionItem[];
+    courseSelectList: OptionItem[];
+    timeSelectList: OptionItem[];
+    currentIndex: number;
+}

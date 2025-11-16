@@ -65,6 +65,16 @@ const routes = [
     component: () => import("~/components/Course/index.vue"),
   },
   {
+    path: "/courseSectionManage",
+    name: "CourseSectionManage",
+    component: () => import("~/components/CourseSectionManage/index.vue")
+  },
+  {
+    path: "/studentCourseSection",
+    name: "StudnetCourseSection",
+    component: () => import("~/components/StudentCourseSection/index.vue")
+  },
+  {
     path: "/score",
     name: "Score",
     component: () => import("~/components/Score/index.vue"),

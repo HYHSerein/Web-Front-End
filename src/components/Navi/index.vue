@@ -129,7 +129,7 @@ const changeUser = async (type: string) => {
         loginReq.username = 'admin';
         loginReq.password = '123456';
     } else if (type === 'ROLE_STUDENT') {
-        loginReq.username = '2022030001';
+        loginReq.username = '2022030002';
         loginReq.password = '123456';
     }
     console.log("login", loginReq);
