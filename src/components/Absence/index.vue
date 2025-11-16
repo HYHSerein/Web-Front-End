@@ -125,7 +125,7 @@
                             </el-tag>
                         </template>
                     </el-table-column>
-                    <el-table-column label="操作" width="180">
+                    <!-- <el-table-column label="操作" width="180">
                         <template v-slot="scope">
                             <div class="table-actions">
                                 <el-button type="success" size="small" @click="giveResult(scope.$index)"
@@ -137,7 +137,7 @@
                                 </el-button>
                             </div>
                         </template>
-                    </el-table-column>
+                    </el-table-column> -->
                 </el-table>
             </div>
         </div>
