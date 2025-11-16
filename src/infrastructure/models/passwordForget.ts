@@ -4,6 +4,7 @@ export interface passwordForgetRequest{
     code: string;
 }
 export interface passwordForget{
+    username:string;
     newPassword: string;
     checkPassword:string;
     code:string;

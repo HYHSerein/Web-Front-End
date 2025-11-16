@@ -12,6 +12,7 @@ export const ID_INFO_SERVICE = Symbol('IInfoService');
 export const ID_SYSTEM_SERVICE = Symbol('ISystemService');
 export const ID_PERSON_SERVICE = Symbol('IPersonService');
 export const ID_TEACHING_SERVICE = Symbol('ITeachingService');
+export const ID_ABSENCE_SERVICE = Symbol('IAbsenceService');
 
 export const ID_DICTIONARY_MANAGE_PRESENTER = Symbol('ID_DICTIONARY_MANAGE_PRESENTER');
 export const ID_MENU_MANAGE_PRESENTER = Symbol('ID_MENU_MANAGE_PRESENTER');
@@ -28,5 +29,7 @@ export const ID_FAMILY_MEMBER_PRESENTER = Symbol('ID_FAMILY_MEMBER_PRESENTER');
 export const ID_COURSE_PRESENTER = Symbol('ID_COURSE_PRESENTER');
 export const ID_COURSE_SECTION_PRESENTER = Symbol('ID_COURSE_SECTION_PRESENTER');
 export const ID_SCORE_PRESENTER = Symbol('ID_SCORE_PRESENTER');
+export const ID_ABSENCE_PRESENTER=Symbol('ID_ABSENCESTUDENT_PRESENTER');
+
 export const ID_NOTICE_SERVICE = Symbol('ID_NOTICE_SERVICE');
 export const ID_NOTICE_PRESENTER = Symbol('ID_NOTICE_PRESENTER');

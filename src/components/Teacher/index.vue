@@ -1,32 +1,32 @@
 <template>
   <div class="main-view-container">
     <el-dialog v-model="introduceVisible" :close-on-click-modal="false" width="90%" class="custom-dialog"
-    destroy-on-close>
-    <template #header>
-      <div class="dialog-header">
-        <div class="header-icon">
-          <el-icon>
-            <User />
-          </el-icon>
+      destroy-on-close>
+      <template #header>
+        <div class="dialog-header">
+          <div class="header-icon">
+            <el-icon>
+              <User />
+            </el-icon>
+          </div>
+          <h3 class="dialog-title">教师简介</h3>
         </div>
-        <h3 class="dialog-title">教师简介</h3>
-      </div>
-    </template>
-    <TeacherIntroduce :personId="introducePersonId" />
-    <template #footer>
-      <div class="dialog-footer">
-        <el-button type="info" plain @click="introduceVisible = false" class="dialog-btn">
-          <el-icon>
-            <Close />
-          </el-icon>
-          关闭
-        </el-button>
-      </div>
-    </template>
-  </el-dialog>
+      </template>
+      <TeacherIntroduce :personId="introducePersonId" />
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button type="info" plain @click="introduceVisible = false" class="dialog-btn">
+            <el-icon>
+              <Close />
+            </el-icon>
+            关闭
+          </el-button>
+        </div>
+      </template>
+    </el-dialog>
 
-      <!-- 教师信息编辑对话框 -->
-      <el-dialog v-model="editVisible" :close-on-click-modal="false" width="60%" class="custom-dialog" destroy-on-close>
+    <!-- 教师信息编辑对话框 -->
+    <el-dialog v-model="editVisible" :close-on-click-modal="false" width="60%" class="custom-dialog" destroy-on-close>
       <template #header>
         <div class="dialog-header">
           <div class="header-icon">
@@ -256,7 +256,7 @@
         </div>
       </div>
     </div>
-  </div>        
+  </div>
 </template>
 <script lang="ts" setup name="Teacher">
 import type { TeacherData, TeacherItem } from "~/domain/models/person";
@@ -295,12 +295,15 @@ const doExport = async () => {
 };
 
 const addItem = async () => {
+  data.value
   itemData.value = presenter.addItem(data.value);
   editVisible.value = true;
 };
 const editItem = async (index: number) => {
+  console.log(data.value);
   itemData.value = await presenter.editItem(data.value, index);
   editVisible.value = true;
+
 };
 const itemSubmit = async () => {
   // goToHome();

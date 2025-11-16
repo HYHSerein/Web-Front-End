@@ -85,6 +85,16 @@ const routes = [
     component: () => import("~/components/Score/index.vue"),
   },
   {
+    path: "/forgetpassword",
+    name: "ForgetPassword",
+    component: () => import("~/components/ForgetPassword/index.vue"),
+  },
+  {
+    path: "/Absence",
+    name: "Absence",
+    component: () => import("~/components/Absence/index.vue"),
+  },
+  {
     path: "/notificationManage",
     name: "NotificationManage",
     component: ()=>import("~/components/NotificationManage/index.vue")
