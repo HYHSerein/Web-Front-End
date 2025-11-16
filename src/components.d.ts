@@ -8,10 +8,20 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Course: typeof import('./components/Course/index.vue')['default']
+    CourseSectionManage: typeof import('./components/CourseSectionManage/index.vue')['default']
+    CourseSectionTable: typeof import('./components/CourseSectionTable/index.vue')['default']
     DictionaryManage: typeof import('./components/DictionaryManage/index.vue')['default']
     ElAlert: typeof import('element-plus/es')['ElAlert']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElButton: typeof import('element-plus/es')['ElButton']
+<<<<<<< HEAD
+=======
+    ElCard: typeof import('element-plus/es')['ElCard']
+    ElCarousel: typeof import('element-plus/es')['ElCarousel']
+    ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
+    ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
+    ElCol: typeof import('element-plus/es')['ElCol']
+>>>>>>> hhd1.0
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
     ElDialog: typeof import('element-plus/es')['ElDialog']
@@ -34,6 +44,14 @@ declare module 'vue' {
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+<<<<<<< HEAD
+=======
+    ElTable: typeof import('element-plus/es')['ElTable']
+    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
+    ElTag: typeof import('element-plus/es')['ElTag']
+    ElTree: typeof import('element-plus/es')['ElTree']
+    ElUpload: typeof import('element-plus/es')['ElUpload']
+>>>>>>> hhd1.0
     FamilyMember: typeof import('./components/FamilyMember/index.vue')['default']
     ForgetPassword: typeof import('./components/ForgetPassword/index.vue')['default']
     MainPage: typeof import('./components/MainPage/index.vue')['default']
@@ -44,6 +62,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     Score: typeof import('./components/Score/index.vue')['default']
     Student: typeof import('./components/Student/index.vue')['default']
+    StudentCourseSection: typeof import('./components/StudentCourseSection/index.vue')['default']
     StudentIntroduce: typeof import('./components/StudentIntroduce/index.vue')['default']
     SystemIntroduce: typeof import('./components/SystemIntroduce/index.vue')['default']
     Teacher: typeof import('./components/Teacher/index.vue')['default']
