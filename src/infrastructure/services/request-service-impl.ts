@@ -161,5 +161,4 @@ export class RequestServiceImpl implements IRequestService {
     if (res != 200) {
       alert("导出失败！");
     }
-  }
-}
+  }}

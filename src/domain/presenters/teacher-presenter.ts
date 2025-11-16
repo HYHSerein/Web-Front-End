@@ -52,6 +52,8 @@ export class TeacherPresenter {
     };
     public addItem(data: TeacherData): TeacherItem {
         let item = {} as TeacherItem;
+        data.birthday = new Date('');
+        data.imgStr = "";
         data.currentIndex = -1;
         return item;
     }

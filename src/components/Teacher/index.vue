@@ -264,6 +264,8 @@ import { container } from '~/inverfiy.config';
 import { ID_TEACHER_PRESENTER } from '~/types';
 import { TeacherPresenter } from "~/domain/presenters/teacher-presenter";
 import { ref } from "vue";
+import { createRouter, useRouter } from 'vue-router';
+
 import {
   User, UserFilled, Edit, Delete, Plus, Search, Download,
   Check, Close, Upload
@@ -274,6 +276,8 @@ let itemData = ref<TeacherItem>({} as TeacherItem);   //当前正在编辑的教
 let editVisible = ref(false);   //控制编辑对话框的显示
 let introduceVisible = ref(false);    //控制教师简介对话框的显示
 let introducePersonId = ref(0);   //当前查看其简介的教师的personId
+// const router = useRouter();
+
 //开始data.val就被后端返回的第一页教师信息填满了，编辑教师信息时会将新数据合并
 presenter.teacherInit().then((res) => {
   data.value = res;
@@ -302,6 +306,7 @@ const editItem = async (index: number) => {
 
 };
 const itemSubmit = async () => {
+  // goToHome();
   //console.log('保存前 dataList 长度', data.value.dataList.length)
   await presenter.itemSubmit(itemData.value, data.value)
   //console.log('保存后 dataList 长度', data.value.dataList.length)
@@ -320,6 +325,11 @@ const deleteItem = async (index: number) => {
 const onSuccessPhoto = async (res: any) => {
   await presenter.onSuccessPhoto(data.value, res);
 };
+
+// // 1. 基础跳转（路径形式）
+//  const goToHome = () => {
+//    router.push('/courseSectionManage') // 对应路由path
+//  }
 
 </script>
 <style lang="scss" scoped></style>

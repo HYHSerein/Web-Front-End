@@ -13,6 +13,7 @@ export class MenuManagePresenter {
         let data = {} as MenuManageData;
         data.roleList = await this.service.getRoleOptionItemList()
         data.nodes = await this.service.getMenuTreeNodeList()
+       
         return data;
     }
     public async confirm(data: MenuManageData, editedNode: TreeNode): Promise<void> {
@@ -50,6 +51,16 @@ export class MenuManagePresenter {
         } else {
             this.messageService.error(res.msg)
         }
-    };
+    };/*public async getMenuList(): Promise<Array<{ name: string; path: string; id: string; pid: string | null }>> {
+    return [
+      { name: '首页', path: '/', id: '1', pid: null },
+      { name: '学生管理', path: '/student-manage', id: '2', pid: null },
+      { name: '课程管理', path: '/course-manage', id: '3', pid: null },
+      { name: '通知公告管理', path: '/notice-manage', id: '5', pid: null }, // 新增通知管理
+      { name: '成绩管理', path: '/score-manage', id: '4', pid: null },
+    ];
+  };*/
+
+
 
 }

@@ -11,6 +11,7 @@ import {
     ID_STUDENT_PRESENTER, ID_TEACHER_PRESENTER, ID_FAMILY_MEMBER_PRESENTER,
     ID_COURSE_PRESENTER, ID_SCORE_PRESENTER,
     ID_ABSENCE_PRESENTER,
+    ID_COURSE_SECTION_PRESENTER,
 } from './types';
 import { ILoginService } from '~/infrastructure/boundaries/login-service';
 import { LoginServiceImpl } from '~/infrastructure/services/login-service-impl';
@@ -52,6 +53,7 @@ import { TeacherPresenter } from '~/domain/presenters/teacher-presenter';
 import { FamilyMemberPresenter } from '~/domain/presenters/family-member-presenter';
 
 import { CoursePresenter } from '~/domain/presenters/course-presenter';
+import { CourseSectionPresenter } from '~/domain/presenters/course-section-presenter';
 import { ScorePresenter } from '~/domain/presenters/score-presenter';
 import { AbsencePresenter } from './domain/presenters/absence-presenter';
 import { absenceServiceImpl } from './infrastructure/services/absence-service-impl';
@@ -86,6 +88,7 @@ container.bind<TeacherPresenter>(ID_TEACHER_PRESENTER).to(TeacherPresenter).inSi
 container.bind<FamilyMemberPresenter>(ID_FAMILY_MEMBER_PRESENTER).to(FamilyMemberPresenter).inSingletonScope();
 
 container.bind<CoursePresenter>(ID_COURSE_PRESENTER).to(CoursePresenter).inSingletonScope();
+container.bind<CourseSectionPresenter>(ID_COURSE_SECTION_PRESENTER).to(CourseSectionPresenter).inSingletonScope();
 container.bind<ScorePresenter>(ID_SCORE_PRESENTER).to(ScorePresenter).inSingletonScope();
 container.bind<AbsencePresenter>(ID_ABSENCE_PRESENTER).to(AbsencePresenter).inSingletonScope();
 container.bind<AbsenceService>(ID_ABSENCE_SERVICE).to(absenceServiceImpl).inSingletonScope();

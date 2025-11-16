@@ -1,6 +1,11 @@
 // Composables
+import path from "path";
 import { createRouter, createWebHashHistory, createWebHistory } from "vue-router";
-
+import index from '~/components/Notice/index.vue';
+//import { useUserStore } from '~/stores/app';
+import Login from '@/components/Login/index.vue';
+import NoPermission from '@/components/NoPermission/index.vue';
+//import component from '../env';
 //路由表
 const routes = [
   //当路由为空时，重定向到登录页面
@@ -65,6 +70,16 @@ const routes = [
     component: () => import("~/components/Course/index.vue"),
   },
   {
+    path: "/courseSectionManage",
+    name: "CourseSectionManage",
+    component: () => import("~/components/CourseSectionManage/index.vue")
+  },
+  {
+    path: "/studentCourseSection",
+    name: "StudnetCourseSection",
+    component: () => import("~/components/StudentCourseSection/index.vue")
+  },
+  {
     path: "/score",
     name: "Score",
     component: () => import("~/components/Score/index.vue"),
@@ -79,6 +94,11 @@ const routes = [
     name: "Absence",
     component: () => import("~/components/Absence/index.vue"),
   },
+  {
+    path: "/notificationManage",
+    name: "NotificationManage",
+    component: ()=>import("~/components/NotificationManage/index.vue")
+  }
 ];
 //路由创建
 const router = createRouter({
