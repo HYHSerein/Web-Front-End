@@ -53,6 +53,8 @@ export class StudentPresenter {
     };
     public addItem(data: StudentData): StudentItem {
         let item = {} as StudentItem;
+        data.birthday = new Date('');
+        data.imgStr = "";
         data.currentIndex = -1;
         return item;
     }
@@ -60,7 +62,6 @@ export class StudentPresenter {
         let item = { ...data.dataList[index] } as StudentItem;
         data.currentIndex = index;
         data.birthday = this.commService.getDateFromStr(item.birthday);
-        // const res = await this.infoService.getPhotoImageStr("photo/" + item.personId + ".jpg");
         const res = await this.infoService.getPhotoImageStr(item.personId);
         data.imgStr = res.data;
         return item;

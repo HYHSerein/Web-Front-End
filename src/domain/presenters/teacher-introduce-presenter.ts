@@ -17,7 +17,6 @@ export class TeacherIntroducePresenter {
             data.personId = data.info.personId;
             res = await this.service.getPhotoImageStr(data.info.personId);
             data.imgStr = res.data;
-            console.log(data.imgStr);
         }
     }
 }
