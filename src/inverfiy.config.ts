@@ -1,6 +1,7 @@
 import { Container } from 'inversify';
 import {
     ID_LOGIN_SERVICE, ID_STORE_SERVICE, ID_REQUEST_SERVICE, ID_COMM_SERVICE, ID_MESSAGE_SERVICE,
+    ID_ABSENCE_SERVICE,
     ID_APP_PRESENTER,
     ID_BASE_SERVICE,
     ID_MAIN_PAGE_PRESENTER,
@@ -9,6 +10,7 @@ import {
     ID_PASSWORD_PRESENTER, ID_SYSTEM_INTRODUCE_PRESENTER, ID_STUDENT_INTRODUCE_PRESENTER, ID_TEACHER_INTRODUCE_PRESENTER,
     ID_STUDENT_PRESENTER, ID_TEACHER_PRESENTER, ID_FAMILY_MEMBER_PRESENTER,
     ID_COURSE_PRESENTER, ID_SCORE_PRESENTER,
+    ID_ABSENCE_PRESENTER,
 } from './types';
 import { ILoginService } from '~/infrastructure/boundaries/login-service';
 import { LoginServiceImpl } from '~/infrastructure/services/login-service-impl';
@@ -21,6 +23,7 @@ import { CommServiceImpl } from '~/infrastructure/services/comm-service-impl';
 import { IMessageService } from '~/infrastructure/boundaries/message-service';
 import { MessageServiceImpl } from '~/infrastructure/services/message-service-impl';
 import { AppPresenter } from '~/infrastructure/presenters/app-presenter';
+import { AbsenceService } from './domain/boundaries/absence-service';
 
 import { IBaseService } from '~/infrastructure/boundaries/base-service';
 import { BaseServiceImpl } from '~/infrastructure/services/base-service-impl';
@@ -50,7 +53,8 @@ import { FamilyMemberPresenter } from '~/domain/presenters/family-member-present
 
 import { CoursePresenter } from '~/domain/presenters/course-presenter';
 import { ScorePresenter } from '~/domain/presenters/score-presenter';
-
+import { AbsencePresenter } from './domain/presenters/absence-presenter';
+import { absenceServiceImpl } from './infrastructure/services/absence-service-impl';
 
 const container = new Container();
 container.bind<ILoginService>(ID_LOGIN_SERVICE).to(LoginServiceImpl).inSingletonScope();
@@ -83,5 +87,7 @@ container.bind<FamilyMemberPresenter>(ID_FAMILY_MEMBER_PRESENTER).to(FamilyMembe
 
 container.bind<CoursePresenter>(ID_COURSE_PRESENTER).to(CoursePresenter).inSingletonScope();
 container.bind<ScorePresenter>(ID_SCORE_PRESENTER).to(ScorePresenter).inSingletonScope();
+container.bind<AbsencePresenter>(ID_ABSENCE_PRESENTER).to(AbsencePresenter).inSingletonScope();
+container.bind<AbsenceService>(ID_ABSENCE_SERVICE).to(absenceServiceImpl).inSingletonScope();
 
 export { container };
