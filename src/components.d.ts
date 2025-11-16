@@ -14,14 +14,11 @@ declare module 'vue' {
     ElAlert: typeof import('element-plus/es')['ElAlert']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElButton: typeof import('element-plus/es')['ElButton']
-<<<<<<< HEAD
-=======
     ElCard: typeof import('element-plus/es')['ElCard']
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
     ElCol: typeof import('element-plus/es')['ElCol']
->>>>>>> hhd1.0
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
     ElDialog: typeof import('element-plus/es')['ElDialog']
@@ -44,19 +41,17 @@ declare module 'vue' {
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
-<<<<<<< HEAD
-=======
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTag: typeof import('element-plus/es')['ElTag']
     ElTree: typeof import('element-plus/es')['ElTree']
     ElUpload: typeof import('element-plus/es')['ElUpload']
->>>>>>> hhd1.0
     FamilyMember: typeof import('./components/FamilyMember/index.vue')['default']
     ForgetPassword: typeof import('./components/ForgetPassword/index.vue')['default']
     MainPage: typeof import('./components/MainPage/index.vue')['default']
     MenuManage: typeof import('./components/MenuManage/index.vue')['default']
     Navi: typeof import('./components/Navi/index.vue')['default']
+    NotificationManage: typeof import('./components/NotificationManage/index.vue')['default']
     Password: typeof import('./components/Password/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

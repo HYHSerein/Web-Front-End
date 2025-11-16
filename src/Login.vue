@@ -127,7 +127,7 @@ const validataCodeTest = async () => {
   }
   try {
 
-    const response = await axios.post('/auth/te  stValidateInfo', {
+    const response = await axios.post('/auth/testValidateInfo', {
       "data": {
         "VerificationCodeId": VerificationCodeId.value,
         "VerificationCode": VerificationCode.value
