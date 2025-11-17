@@ -1,6 +1,6 @@
 import { DataResponse } from "~/infrastructure/models/request";
 import { OptionItem } from "~/infrastructure/models/base";
-import { CourseItem } from "~/domain/models/teaching";
+import { CourseItem, VolunteerHoursItem } from "~/domain/models/teaching";
 import { CourseSectionItem } from "~/domain/models/teaching";
 import { HonorItem } from "~/domain/models/teaching";
 export interface ITeachingService {
@@ -24,4 +24,8 @@ export interface ITeachingService {
     getHonorList(personId: number | null, honorLevel: string | null): Promise<HonorItem[]>;
     honorSave(honorId: number | null, personId: number, honorName: string, honorLevel: string, awardTime: string, awardUnit?: string, description?: string): Promise<DataResponse>;
     honorDelete(honorId: number): Promise<DataResponse>;
+    // 志愿者活动管理接口
+    getVolunteerHoursList(numName: string | null): Promise<VolunteerHoursItem[]>;
+    volunteerHoursDelete(volunteerId: number): Promise<DataResponse>;
+    volunteerHoursSave(data: VolunteerHoursItem): Promise<DataResponse>;
 }

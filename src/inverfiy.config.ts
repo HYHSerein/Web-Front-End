@@ -9,9 +9,10 @@ import {
     ID_DICTIONARY_MANAGE_PRESENTER, ID_MENU_MANAGE_PRESENTER,
     ID_PASSWORD_PRESENTER, ID_SYSTEM_INTRODUCE_PRESENTER, ID_STUDENT_INTRODUCE_PRESENTER, ID_TEACHER_INTRODUCE_PRESENTER,
     ID_STUDENT_PRESENTER, ID_TEACHER_PRESENTER, ID_FAMILY_MEMBER_PRESENTER,
-    ID_COURSE_PRESENTER, ID_SCORE_PRESENTER,ID_HONOR_PRESENTER
+    ID_COURSE_PRESENTER, ID_SCORE_PRESENTER, ID_HONOR_PRESENTER
     ID_ABSENCE_PRESENTER,
-    ID_COURSE_SECTION_PRESENTER,
+    ID_COURSE_SECTION_PRESENTER, ID_VOLUNTEER_HOURS_PRESENTER,
+
 } from './types';
 import { ID_NOTICE_SERVICE, ID_NOTICE_PRESENTER } from "~/types";
 import { INoticeService } from "~/domain/boundaries/notice-service";
@@ -65,7 +66,7 @@ import { ScorePresenter } from '~/domain/presenters/score-presenter';
 import { AbsencePresenter } from './domain/presenters/absence-presenter';
 import { absenceServiceImpl } from './infrastructure/services/absence-service-impl';
 >>>>>>> 51b29e0857ddacf6f8e69d946b0d28487a2f2a3aimport { HonorPresenter } from '~/domain/presenters/honor-presenter';
-
+import { VolunteerHoursPresenter } from '~/domain/presenters/volunteer-hours-presenter';
 
 const container = new Container();
 container.bind<ILoginService>(ID_LOGIN_SERVICE).to(LoginServiceImpl).inSingletonScope();
@@ -107,5 +108,6 @@ container.bind<AbsencePresenter>(ID_ABSENCE_PRESENTER).to(AbsencePresenter).inSi
 container.bind<AbsenceService>(ID_ABSENCE_SERVICE).to(absenceServiceImpl).inSingletonScope();
 
 >>>>>>> 51b29e0857ddacf6f8e69d946b0d28487a2f2a3acontainer.bind<HonorPresenter>(ID_HONOR_PRESENTER).to(HonorPresenter).inSingletonScope();
+container.bind<VolunteerHoursPresenter>(ID_VOLUNTEER_HOURS_PRESENTER).to(VolunteerHoursPresenter).inSingletonScope();
 
 export { container };
