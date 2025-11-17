@@ -69,6 +69,11 @@ const routes = [
     name: "Score",
     component: () => import("~/components/Score/index.vue"),
   },
+   {
+    path: "/honor",
+    name: "Honor",
+    component: () => import("~/components/Honor/index.vue"),
+  },
 ];
 //路由创建
 const router = createRouter({

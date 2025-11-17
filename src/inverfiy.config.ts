@@ -8,7 +8,7 @@ import {
     ID_DICTIONARY_MANAGE_PRESENTER, ID_MENU_MANAGE_PRESENTER,
     ID_PASSWORD_PRESENTER, ID_SYSTEM_INTRODUCE_PRESENTER, ID_STUDENT_INTRODUCE_PRESENTER,
     ID_STUDENT_PRESENTER, ID_FAMILY_MEMBER_PRESENTER,
-    ID_COURSE_PRESENTER, ID_SCORE_PRESENTER,
+    ID_COURSE_PRESENTER, ID_SCORE_PRESENTER,ID_HONOR_PRESENTER
 } from './types';
 import { ILoginService } from '~/infrastructure/boundaries/login-service';
 import { LoginServiceImpl } from '~/infrastructure/services/login-service-impl';
@@ -48,6 +48,7 @@ import { FamilyMemberPresenter } from '~/domain/presenters/family-member-present
 
 import { CoursePresenter } from '~/domain/presenters/course-presenter';
 import { ScorePresenter } from '~/domain/presenters/score-presenter';
+import { HonorPresenter } from '~/domain/presenters/honor-presenter';
 
 
 const container = new Container();
@@ -79,5 +80,6 @@ container.bind<FamilyMemberPresenter>(ID_FAMILY_MEMBER_PRESENTER).to(FamilyMembe
 
 container.bind<CoursePresenter>(ID_COURSE_PRESENTER).to(CoursePresenter).inSingletonScope();
 container.bind<ScorePresenter>(ID_SCORE_PRESENTER).to(ScorePresenter).inSingletonScope();
+container.bind<HonorPresenter>(ID_HONOR_PRESENTER).to(HonorPresenter).inSingletonScope();
 
 export { container };

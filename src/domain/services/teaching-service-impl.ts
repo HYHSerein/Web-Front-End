@@ -1,10 +1,12 @@
 import { DataResponse } from "~/infrastructure/models/request";
 import { OptionItem } from "~/infrastructure/models/base";
 import { CourseItem } from "~/domain/models/teaching";
+import { HonorItem } from "~/domain/models/teaching";
 import { IRequestService } from "~/infrastructure/boundaries/request-service";
 import { ITeachingService } from "~/domain/boundaries/teaching-service";
 import { ID_REQUEST_SERVICE, } from "~/types";
 import { inject, injectable } from "inversify";
+import { imageEmits } from "element-plus";
 @injectable()
 export class TeachingServiceImpl implements ITeachingService {
     constructor(
@@ -73,6 +75,63 @@ export class TeachingServiceImpl implements ITeachingService {
             scoreId: scoreId,
         });
         return res as DataResponse;
+    }
+   public async getHonorList(
+    personId: number | null,
+    honorLevel: string | null
+): Promise<HonorItem[]> {
+    console.log("【TeachingService】getHonorList 调用参数:", { personId, honorLevel });
+    
+    const res = await this.requestService.generalRequest("/api/honor/getHonorList", {
+        personId: personId,
+        honorLevel: honorLevel,
+    });
+    
+    console.log("【TeachingService】generalRequest 返回:", res);
+    console.log("【TeachingService】返回的 data:", res.data);
+    console.log("【TeachingService】返回的 data 类型:", typeof res.data);
+    console.log("【TeachingService】返回的 data 长度:", Array.isArray(res.data) ? res.data.length : '不是数组');
+    
+    if (Array.isArray(res.data)) {
+        console.log("【TeachingService】第一条数据:", res.data[0]);
+    }
+    
+    return res.data as HonorItem[];
+}
+
+
+// 荣誉保存后台数据请求方法
+public async honorSave(
+    honorId: number | null,
+    personId: number,
+    honorName: string,
+    honorLevel: 'national' | 'provincial' | 'municipal' | 'school' | 'college',
+    awardTime: string,
+    awardUnit?: string,
+    description?: string
+): Promise<DataResponse> {
+    const res = await this.requestService.generalRequest("/api/honor/honorSave", {
+        honorId: honorId,
+        personId: personId,
+        honorName: honorName,
+        honorLevel: honorLevel,
+        awardTime: awardTime,
+        awardUnit: awardUnit,
+        description: description,
+    });
+    return res as DataResponse;
+}
+
+// 荣誉删除后台数据请求方法
+public async honorDelete(honorId: number): Promise<DataResponse> {
+    const res = await this.requestService.generalRequest("/api/honor/honorDelete", {
+        honorId: honorId,
+    });
+    return res as DataResponse;
+}
+public async getHonorLevelOptionList(): Promise<OptionItem[]> {
+        const res = await this.requestService.generalRequest("/api/honor/getHonorLevelOptionList", null);
+        return res.itemList as OptionItem[];
     }
 
 }
