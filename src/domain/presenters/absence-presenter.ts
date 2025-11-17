@@ -32,14 +32,31 @@ export class AbsencePresenter {
         console.log(data.dataList);
         return data;
     }
+    public async absenceGiveResult(isApproved: boolean,data:AbsenceItem){
+        if(isApproved){
+            const res=await this.service.setResult("同意",data.absenceId);
+            if(res.code==0){
+                this.messageService.success("设置成功");
+            }
+            else{
+                this.messageService.error(res.msg);
+            }
+            return;
+        }
+        const res=await this.service.setResult("不同意",data.absenceId);
+        if(res.code==0){
+                this.messageService.success("设置成功");
+            }
+            else{
+                this.messageService.error(res.msg);
+            }
+            return;
+    }
     public async getAbsenceList(data: AbsenceData): Promise<void> {
         data.dataList = await this.service.getAbsenceList(data.numName);//直接改变data里面的值
-        console.log("嘿哈嘿哈");
-        console.log(data);
     }
     async deleteItem(data: AbsenceData, index: number) {
         const result = await this.messageService.confirm("确认删除这条请假记录吗?");
-        console.log(result);
         if (!result) {
             return;
         }

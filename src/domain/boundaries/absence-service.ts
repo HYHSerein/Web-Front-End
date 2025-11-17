@@ -6,4 +6,5 @@ export interface AbsenceService{
     absenceDelete(absenceId: number): Promise<DataResponse>;
     absenceSave(data: AbsenceItem): Promise<DataResponse>;
     getTeacherOptionList(): Promise<OptionItem[]>;
+    setResult(result:string,absenceId:number):Promise<DataResponse>;
 }

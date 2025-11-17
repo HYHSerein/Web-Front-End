@@ -1,6 +1,5 @@
 <template>
     <div class="main-view-container">
-        <!-- 请假编辑对话框 -->
         <el-dialog v-model="editVisible" :close-on-click-modal="false" width="60%" class="custom-dialog"
             destroy-on-close>
             <template #header>
@@ -58,6 +57,23 @@
                 </div>
             </template>
         </el-dialog>
+        <el-dialog
+      v-model="dialogVisible"
+      title="请假审批"
+      width="30%"
+      :close-on-click-modal="false"
+    >
+      <div class="dialog-content">
+        <p>请选择对这位同学的审批操作：</p>
+      </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="dialogVisible = false">取消</el-button>
+          <el-button type="danger" @click="handleReject">拒绝</el-button>
+          <el-button type="success" @click="handleApprove">同意</el-button>
+        </div>
+      </template>
+    </el-dialog>
 
         <!-- 主要内容区域 -->
         <div class="main-content">
@@ -90,7 +106,8 @@
             <!-- 数据表格 -->
             <div class="table-container">
                 <el-table :data="data.dataList" stripe class="base-table-table">
-                    <el-table-column label="序号" width="70">
+                    <!-- 与示例一致的序号列 -->
+                    <el-table-column label="序号" width="60">
                         <template v-slot="scope">
                             <div class="sequence-number">
                                 {{ scope.$index + 1 }}
@@ -125,19 +142,19 @@
                             </el-tag>
                         </template>
                     </el-table-column>
-                    <!-- <el-table-column label="操作" width="180">
+                    <el-table-column label="操作" width="180" v-if="appStore.userInfo.role == 'ROLE_TEACHER'">
                         <template v-slot="scope">
                             <div class="table-actions">
                                 <el-button type="success" size="small" @click="giveResult(scope.$index)"
                                     class="table-btn delete-btn">
                                     <el-icon>
-                                        <Delete />
+                                        <Check />
                                     </el-icon>
                                     进行审批
                                 </el-button>
                             </div>
                         </template>
-                    </el-table-column> -->
+                    </el-table-column>
                 </el-table>
             </div>
         </div>
@@ -157,24 +174,47 @@ const presenter = container.get<AbsencePresenter>(ID_ABSENCE_PRESENTER);
 // 状态定义
 let itemData = ref<AbsenceItem>({} as AbsenceItem);
 let editVisible = ref(false);
+let dialogVisible = ref(false);
 let data = ref<AbsenceData>({} as AbsenceData);
+let dataIndex=1;
 presenter.absenceInit().then((res) => {//页面初始化已经写完了
     data.value = res;
 });
-
+let isApproved=false;
 // 新增请假
 const itemSubmit = async () => {
     await presenter.absenceSave(itemData.value);
+    editVisible.value = false;
+    presenter.absenceInit().then((res) => {//页面初始化已经写完了
+    data.value = res;
+});
 };
 
-const giveResult = async () =>{
-    
+const giveResult = async (index:number) =>{
+    dataIndex=index;
+    dialogVisible.value=true;
 }
 
 // 打开新增对话框
 const addItem = async () => {
     itemData.value = {} as AbsenceItem;
     editVisible.value = true;
+};
+const handleReject = async () => {
+    isApproved=false;
+    presenter.absenceGiveResult(isApproved,data.value.dataList[dataIndex]);
+    dialogVisible.value=false;
+    presenter.absenceInit().then((res) => {//页面初始化已经写完了
+    data.value = res;
+});
+};
+const handleApprove = async () => {
+    isApproved=true;
+    presenter.absenceGiveResult(isApproved,data.value.dataList[dataIndex]);
+    dialogVisible.value=false;
+    presenter.absenceInit().then((res) => {//页面初始化已经写完了
+    data.value = res;
+});
 };
 
 // 删除请假
@@ -308,9 +348,19 @@ const getApproveStatusType = (status: string): 'success' | 'warning' | 'info' | 
         }
     }
 
+    // 与示例完全一致的序号样式
     .sequence-number {
-        text-align: center;
-        color: #666;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #6a76f1, #8a6af1);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0 auto;
     }
 }
 
@@ -431,6 +481,13 @@ const getApproveStatusType = (status: string): 'success' | 'warning' | 'info' | 
         &:not(.el-table-column--selection):not(.el-table-column--operation) {
             width: auto !important;
         }
+    }
+
+    // 响应式下序号样式保持与示例一致
+    .sequence-number {
+        width: 26px;
+        height: 26px;
+        font-size: 12px;
     }
 }
 </style>

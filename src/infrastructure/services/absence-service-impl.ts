@@ -28,4 +28,20 @@ export class absenceServiceImpl implements AbsenceService {
     const res = await this.requestService.generalRequest("/api/absence/absenceSave", data);
     return res as DataResponse;
   }
+  public async setResult(result: string,absenceId:number): Promise<DataResponse> {
+      if(result==="同意"){
+        console.log("同意了同意")
+      const res = await this.requestService.generalRequest("/api/absence/setResult",{result:"同意",
+        absenceId:absenceId
+      });
+      console.log("同意了同意")
+      return res as DataResponse;
+      }
+      else{
+      const res= await this.requestService.generalRequest("/api/absence/setResult",{result:"不同意",
+        absenceId:absenceId
+      });
+      return res as DataResponse;
+      }
+  }
 }
