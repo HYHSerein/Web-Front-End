@@ -1,7 +1,7 @@
 <template>
     <el-dialog :title="dialogTitle" v-model="editVisible" :close-on-click-modal="false">
         <el-form ref="form" :model="editedNode" class="edit-form" label-width="120px">
-            <el-form-item label="父节点">
+            <el-form-item label="父节点wyx">
                 <el-input v-model="editedNode.parentTitle" readonly />
             </el-form-item>
             <el-form-item label="主键ID">

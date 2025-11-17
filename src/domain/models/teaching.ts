@@ -37,3 +37,24 @@ export interface ScoreData {
     studentList: OptionItem[];
     courseList: OptionItem[];
 }
+
+//用于志愿者活动数据信息的定义
+export interface VolunteerHoursItem {
+    volunteerId: number;
+    personId: number;
+    studentNum: string;
+    studentName: string;
+    className: string;
+    activityName: string;
+    hours: number;
+    activityDate: string;
+    organization: string;
+    description: string;
+    status: string;
+}
+
+export interface VolunteerHoursData {
+    numName: string;
+    dataList: VolunteerHoursItem[];
+    studentList: OptionItem[];
+}

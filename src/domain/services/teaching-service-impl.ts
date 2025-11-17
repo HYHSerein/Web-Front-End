@@ -75,4 +75,29 @@ export class TeachingServiceImpl implements ITeachingService {
         return res as DataResponse;
     }
 
+    // 志愿者活动管理实现
+    //获取志愿者活动列表后台数据请求方法
+    public async getVolunteerHoursList(numName: string | null): Promise<any[]> {
+        const res = await this.requestService.generalRequest("/api/volunteer/getVolunteerHoursList", {
+            nameOrNum: numName, 
+        });
+        return res.data as any[];
+    }
+
+    //删除志愿者活动后台数据请求方法
+    public async volunteerHoursDelete(volunteerId: number): Promise<DataResponse> {
+        const res = await this.requestService.generalRequest("/api/volunteer/volunteerHoursDelete", {
+            volunteerId: volunteerId,
+        });
+        return res as DataResponse;
+    }
+
+    //志愿者活动保存后台数据请求方法
+    public async volunteerHoursSave(data: any): Promise<DataResponse> {
+        const res = await this.requestService.generalRequest("/api/volunteer/volunteerHoursSave", {
+            form: data
+        });
+        return res as DataResponse;
+    }
+
 }

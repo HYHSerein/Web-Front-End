@@ -57,5 +57,6 @@ declare module 'vue' {
     SystemIntroduce: typeof import('./components/SystemIntroduce/index.vue')['default']
     Teacher: typeof import('./components/Teacher/index.vue')['default']
     TeacherIntroduce: typeof import('./components/TeacherIntroduce/index.vue')['default']
+    VolunteerHours: typeof import('./components/VolunteerHours/index.vue')['default']
   }
 }
