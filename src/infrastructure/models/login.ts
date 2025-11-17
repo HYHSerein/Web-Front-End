@@ -4,6 +4,11 @@ export interface LoginRequest {
     code: string;
 
 }
+export interface VerificationCodeRequest{
+    VerificationCode:string;
+    VerificationCodeId:string;
+    code:string;
+}
 export interface JwtResponse {
     token: string;
     type: string;
@@ -12,4 +17,3 @@ export interface JwtResponse {
     perName: string;
     role: string;
 }
-

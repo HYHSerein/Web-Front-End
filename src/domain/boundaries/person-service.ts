@@ -8,8 +8,9 @@ export interface IPersonService {
     getFamilyMemberList(personId: number): Promise<FamilyMemberItem[]>;
     familyMemberSave(form: FamilyMemberItem): Promise<DataResponse>;
     familyMemberDelete(memberId: number): Promise<DataResponse>;
-    getTeacherList(numName: String | null): Promise<[]>;
-    getTeacherInfo(personId: number | null): Promise<TeacherItem>;
-    teacherEditSave(personId: number, form: TeacherItem): Promise<DataResponse>;
+    getTeacherPageData(numName: String | null, currentPage: number): Promise<DataResponse>;
+    // getTeacherList(numName: String): Promise<[]>;
+    getTeacherInfo(personId: number): Promise<TeacherItem>;
+    teacherEditSave(personId: number | null, form: TeacherItem): Promise<DataResponse>;
     teacherDelete(personId: number): Promise<DataResponse>;
 }

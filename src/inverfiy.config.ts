@@ -1,15 +1,23 @@
 import { Container } from 'inversify';
 import {
     ID_LOGIN_SERVICE, ID_STORE_SERVICE, ID_REQUEST_SERVICE, ID_COMM_SERVICE, ID_MESSAGE_SERVICE,
+    ID_ABSENCE_SERVICE,
     ID_APP_PRESENTER,
     ID_BASE_SERVICE,
     ID_MAIN_PAGE_PRESENTER,
     ID_INFO_SERVICE, ID_SYSTEM_SERVICE, ID_PERSON_SERVICE, ID_TEACHING_SERVICE,
     ID_DICTIONARY_MANAGE_PRESENTER, ID_MENU_MANAGE_PRESENTER,
-    ID_PASSWORD_PRESENTER, ID_SYSTEM_INTRODUCE_PRESENTER, ID_STUDENT_INTRODUCE_PRESENTER,
-    ID_STUDENT_PRESENTER, ID_FAMILY_MEMBER_PRESENTER,
+    ID_PASSWORD_PRESENTER, ID_SYSTEM_INTRODUCE_PRESENTER, ID_STUDENT_INTRODUCE_PRESENTER, ID_TEACHER_INTRODUCE_PRESENTER,
+    ID_STUDENT_PRESENTER, ID_TEACHER_PRESENTER, ID_FAMILY_MEMBER_PRESENTER,
     ID_COURSE_PRESENTER, ID_SCORE_PRESENTER,ID_HONOR_PRESENTER
+    ID_ABSENCE_PRESENTER,
+    ID_COURSE_SECTION_PRESENTER,
 } from './types';
+import { ID_NOTICE_SERVICE, ID_NOTICE_PRESENTER } from "~/types";
+import { INoticeService } from "~/domain/boundaries/notice-service";
+import { NoticeServiceImpl } from "~/domain/services/notice-service-impl";
+import { NoticePresenter } from "~/domain/presenters/notice-presenter";
+
 import { ILoginService } from '~/infrastructure/boundaries/login-service';
 import { LoginServiceImpl } from '~/infrastructure/services/login-service-impl';
 import { IStoreService } from '~/infrastructure/boundaries/store-service';
@@ -21,6 +29,7 @@ import { CommServiceImpl } from '~/infrastructure/services/comm-service-impl';
 import { IMessageService } from '~/infrastructure/boundaries/message-service';
 import { MessageServiceImpl } from '~/infrastructure/services/message-service-impl';
 import { AppPresenter } from '~/infrastructure/presenters/app-presenter';
+import { AbsenceService } from './domain/boundaries/absence-service';
 
 import { IBaseService } from '~/infrastructure/boundaries/base-service';
 import { BaseServiceImpl } from '~/infrastructure/services/base-service-impl';
@@ -41,14 +50,21 @@ import { MenuManagePresenter } from '~/domain/presenters/menu-manage-presenter';
 
 import { PasswordPresenter } from '~/domain/presenters/password-presenter';
 import { StudentIntroducePresenter } from '~/domain/presenters/student-introduce-presenter';
+import { TeacherIntroducePresenter } from '~/domain/presenters/teacher-introduce-presenter';
 import { SystemIntroducePresenter } from '~/domain/presenters/system-introduce-presenter';
 
 import { StudentPresenter } from '~/domain/presenters/student-presenter';
+import { TeacherPresenter } from '~/domain/presenters/teacher-presenter';
 import { FamilyMemberPresenter } from '~/domain/presenters/family-member-presenter';
 
 import { CoursePresenter } from '~/domain/presenters/course-presenter';
+import { CourseSectionPresenter } from '~/domain/presenters/course-section-presenter';
 import { ScorePresenter } from '~/domain/presenters/score-presenter';
-import { HonorPresenter } from '~/domain/presenters/honor-presenter';
+<<<<<<< HEAD
+=======
+import { AbsencePresenter } from './domain/presenters/absence-presenter';
+import { absenceServiceImpl } from './infrastructure/services/absence-service-impl';
+>>>>>>> 51b29e0857ddacf6f8e69d946b0d28487a2f2a3aimport { HonorPresenter } from '~/domain/presenters/honor-presenter';
 
 
 const container = new Container();
@@ -73,13 +89,23 @@ container.bind<MenuManagePresenter>(ID_MENU_MANAGE_PRESENTER).to(MenuManagePrese
 
 container.bind<PasswordPresenter>(ID_PASSWORD_PRESENTER).to(PasswordPresenter).inSingletonScope();
 container.bind<StudentIntroducePresenter>(ID_STUDENT_INTRODUCE_PRESENTER).to(StudentIntroducePresenter).inSingletonScope();
+container.bind<TeacherIntroducePresenter>(ID_TEACHER_INTRODUCE_PRESENTER).to(TeacherIntroducePresenter).inSingletonScope();
 container.bind<SystemIntroducePresenter>(ID_SYSTEM_INTRODUCE_PRESENTER).to(SystemIntroducePresenter).inSingletonScope();
 
 container.bind<StudentPresenter>(ID_STUDENT_PRESENTER).to(StudentPresenter).inSingletonScope();
+container.bind<TeacherPresenter>(ID_TEACHER_PRESENTER).to(TeacherPresenter).inSingletonScope();
 container.bind<FamilyMemberPresenter>(ID_FAMILY_MEMBER_PRESENTER).to(FamilyMemberPresenter).inSingletonScope();
 
 container.bind<CoursePresenter>(ID_COURSE_PRESENTER).to(CoursePresenter).inSingletonScope();
+container.bind<CourseSectionPresenter>(ID_COURSE_SECTION_PRESENTER).to(CourseSectionPresenter).inSingletonScope();
 container.bind<ScorePresenter>(ID_SCORE_PRESENTER).to(ScorePresenter).inSingletonScope();
-container.bind<HonorPresenter>(ID_HONOR_PRESENTER).to(HonorPresenter).inSingletonScope();
+<<<<<<< HEAD
+container.bind<INoticeService>(ID_NOTICE_SERVICE).to(NoticeServiceImpl).inSingletonScope();
+container.bind<NoticePresenter>(ID_NOTICE_PRESENTER).to(NoticePresenter).inSingletonScope();
+=======
+container.bind<AbsencePresenter>(ID_ABSENCE_PRESENTER).to(AbsencePresenter).inSingletonScope();
+container.bind<AbsenceService>(ID_ABSENCE_SERVICE).to(absenceServiceImpl).inSingletonScope();
+
+>>>>>>> 51b29e0857ddacf6f8e69d946b0d28487a2f2a3acontainer.bind<HonorPresenter>(ID_HONOR_PRESENTER).to(HonorPresenter).inSingletonScope();
 
 export { container };

@@ -93,6 +93,7 @@ export class CommServiceImpl implements ICommService {
     }
     //日期转换成 yyyy-MM-dd HH:mm:ss格式的字符串
     public formatDateTime(d: Date) {
+        console.log(111);
         if (!(d instanceof Date && !isNaN(d.getTime()))) return "";
         const year = d.getFullYear();
         let month = "" + (d.getMonth() + 1);
@@ -100,7 +101,7 @@ export class CommServiceImpl implements ICommService {
         let hour = "" + d.getHours();
         let minute = "" + d.getMinutes();
         let second = "" + d.getSeconds();
-
+        console.log(222);
         if (month.length < 2) month = "0" + month;
         if (day.length < 2) day = "0" + day;
         if (hour.length < 2) hour = "0" + hour;
@@ -108,6 +109,7 @@ export class CommServiceImpl implements ICommService {
         if (second.length < 2) second = "0" + second;
         const str1 = [year, month, day].join("-");
         const str2 = [hour, minute, second].join(":");
+        console.log(333);
         return str1 + " " + str2;
     }
     //日期转换成 HH:mm:ss格式的字符串
