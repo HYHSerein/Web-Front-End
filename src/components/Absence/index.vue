@@ -6,7 +6,7 @@
                 <div class="dialog-header">
                     <div class="header-icon">
                         <el-icon>
-                            <Ticket />
+                            <Sunny />
                         </el-icon>
                     </div>
                     <h3 class="dialog-title">发起请求</h3>
@@ -167,7 +167,7 @@ import { container } from '~/inverfiy.config';
 import { ref } from "vue";
 import { useAppStore } from "~/stores/app";
 import { ID_ABSENCE_PRESENTER } from "~/types";
-import { Ticket, Check, Close, Delete, Plus } from '@element-plus/icons-vue'; // 导入Plus图标
+import { Ticket, Check, Close, Delete, Plus, Calendar, Sunny } from '@element-plus/icons-vue'; // 导入Plus图标
 import { AbsencePresenter } from "~/domain/presenters/absence-presenter";
 const appStore = useAppStore();
 const presenter = container.get<AbsencePresenter>(ID_ABSENCE_PRESENTER);
@@ -265,7 +265,7 @@ const getApproveStatusType = (status: string): 'success' | 'warning' | 'info' | 
         align-items: center;
 
         .header-icon {
-            color: #409eff;
+            color: #000000;
             margin-right: 10px;
 
             el-icon {
@@ -371,7 +371,7 @@ const getApproveStatusType = (status: string): 'success' | 'warning' | 'info' | 
         align-items: center;
 
         .header-icon {
-            color: #409eff;
+            color: #ffffff;
             margin-right: 8px;
 
             el-icon {

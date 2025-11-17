@@ -61,22 +61,42 @@ export interface CourseSectionData {
 }
 // 在 teaching.ts 或相关类型文件中
 export interface HonorItem {
-  honorId: number;
-  personId: number;
-  honorName: string;
-  honorLevel: string;
-  awardTime: string;
-  awardUnit: string;
-  description: string;
-  studentNum?: string;
-  studentName?: string;
-  className?: string;
+    honorId: number;
+    personId: number;
+    honorName: string;
+    honorLevel: string;
+    awardTime: string;
+    awardUnit: string;
+    description: string;
+    studentNum?: string;
+    studentName?: string;
+    className?: string;
 }
 
 export interface HonorData {
-  personId: number;
-  honorLevel: string;
-  studentList: OptionItem[];
-  honorLevelList: OptionItem[];
-  dataList: HonorItem[];
+    personId: number;
+    honorLevel: string;
+    studentList: OptionItem[];
+    honorLevelList: OptionItem[];
+    dataList: HonorItem[];
+}
+//用于志愿者活动数据信息的定义
+export interface VolunteerHoursItem {
+    volunteerId: number;
+    personId: number;
+    studentNum: string;
+    studentName: string;
+    className: string;
+    activityName: string;
+    hours: number;
+    activityDate: string;
+    organization: string;
+    description: string;
+    status: string;
+}
+
+export interface VolunteerHoursData {
+    numName: string;
+    dataList: VolunteerHoursItem[];
+    studentList: OptionItem[];
 }
