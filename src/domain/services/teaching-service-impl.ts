@@ -2,11 +2,13 @@ import { DataResponse } from "~/infrastructure/models/request";
 import { OptionItem } from "~/infrastructure/models/base";
 import { CourseItem } from "~/domain/models/teaching";
 import { CourseSectionItem } from "~/domain/models/teaching";
+import { HonorItem } from "~/domain/models/teaching";
 import { IRequestService } from "~/infrastructure/boundaries/request-service";
 import { ITeachingService } from "~/domain/boundaries/teaching-service";
 import { ID_REQUEST_SERVICE, } from "~/types";
 import { inject, injectable } from "inversify";
 import { TeacherItem } from "../models/person";
+import { imageEmits } from "element-plus";
 @injectable()
 export class TeachingServiceImpl implements ITeachingService {
     constructor(

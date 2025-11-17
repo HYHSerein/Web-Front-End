@@ -44,19 +44,9 @@ export interface FamilyMemberItem {
 //用于教师数据信息的定义
 export interface TeacherItem {
     personId: number;
-    num: string;
-    name: string;
-    dept: string;
-    major: string;
-    degree: string;
+    person: PersonItem;
     title: string;
-    card: string;
-    gender: string;
-    genderName: string;
-    birthday: string;
-    email: string;
-    phone: string;
-    address: string;
+    degree: string;
 }
 
 export interface StudentData {
@@ -74,15 +64,4 @@ export interface FamilyMemberData {
     personId: number;
     dataList: FamilyMemberItem[];
     genderList: OptionItem[];
-}
-
-export interface TeacherData {
-    authHeader: any;
-    numName: string;
-    dataList: TeacherItem[];
-    pagination: Pagination;
-    currentIndex: number;
-    genderList: OptionItem[];
-    birthday: Date;
-    imgStr: string;
 }

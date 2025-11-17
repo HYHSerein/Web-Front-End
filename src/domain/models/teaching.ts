@@ -59,3 +59,24 @@ export interface CourseSectionData {
     timeSelectList: OptionItem[];
     currentIndex: number;
 }
+// 在 teaching.ts 或相关类型文件中
+export interface HonorItem {
+  honorId: number;
+  personId: number;
+  honorName: string;
+  honorLevel: string;
+  awardTime: string;
+  awardUnit: string;
+  description: string;
+  studentNum?: string;
+  studentName?: string;
+  className?: string;
+}
+
+export interface HonorData {
+  personId: number;
+  honorLevel: string;
+  studentList: OptionItem[];
+  honorLevelList: OptionItem[];
+  dataList: HonorItem[];
+}

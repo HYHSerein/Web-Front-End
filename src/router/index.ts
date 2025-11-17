@@ -99,6 +99,11 @@ const routes = [
     name: "NotificationManage",
     component: ()=>import("~/components/NotificationManage/index.vue")
   }
+   {
+    path: "/honor",
+    name: "Honor",
+    component: () => import("~/components/Honor/index.vue"),
+  },
 ];
 //路由创建
 const router = createRouter({
