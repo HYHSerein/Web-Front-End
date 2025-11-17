@@ -19,6 +19,7 @@
                                 <el-dropdown-menu>
                                     <el-dropdown-item @click="changeUser('ROLE_ADMIN')">管理员</el-dropdown-item>
                                     <el-dropdown-item @click="changeUser('ROLE_STUDENT')">学生</el-dropdown-item>
+                                    <el-dropdown-item @click="changeUser('ROLE_TEACHER')">教师</el-dropdown-item>
                                 </el-dropdown-menu>
                             </template>
                         </el-dropdown>
@@ -130,6 +131,9 @@ const changeUser = async (type: string) => {
         loginReq.password = '123456';
     } else if (type === 'ROLE_STUDENT') {
         loginReq.username = '2022030002';
+        loginReq.password = '123456';
+    } else if (type === 'ROLE_TEACHER') {
+        loginReq.username = '20240700';
         loginReq.password = '123456';
     }
     console.log("login", loginReq);

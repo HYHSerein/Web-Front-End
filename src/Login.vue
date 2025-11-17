@@ -346,10 +346,7 @@ const validataCodeTest = async () => {
     return false;
   }
   try {
-<<<<<<< HEAD
 
-=======
->>>>>>> 51b29e0857ddacf6f8e69d946b0d28487a2f2a3a
     const response = await axios.post('/auth/testValidateInfo', {
       "data": {
         "VerificationCodeId": VerificationCodeId.value,

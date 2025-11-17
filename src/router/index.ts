@@ -97,9 +97,9 @@ const routes = [
   {
     path: "/notificationManage",
     name: "NotificationManage",
-    component: ()=>import("~/components/NotificationManage/index.vue")
-  }
-   {
+    component: () => import("~/components/NotificationManage/index.vue")
+  },
+  {
     path: "/honor",
     name: "Honor",
     component: () => import("~/components/Honor/index.vue"),

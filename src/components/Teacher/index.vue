@@ -264,7 +264,7 @@ import { container } from '~/inverfiy.config';
 import { ID_TEACHER_PRESENTER } from '~/types';
 import { TeacherPresenter } from "~/domain/presenters/teacher-presenter";
 import { ref } from "vue";
-import { createRouter, useRouter } from 'vue-router';
+// import { createRouter, useRouter } from 'vue-router';
 
 import {
   User, UserFilled, Edit, Delete, Plus, Search, Download,
@@ -326,9 +326,9 @@ const onSuccessPhoto = async (res: any) => {
   await presenter.onSuccessPhoto(data.value, res);
 };
 
-// // 1. 基础跳转（路径形式）
+// 1. 基础跳转（路径形式）
 //  const goToHome = () => {
-//    router.push('/courseSectionManage') // 对应路由path
+//    router.push('/studentCourseSection') // 对应路由path
 //  }
 
 </script>
