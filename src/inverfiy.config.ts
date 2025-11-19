@@ -12,7 +12,7 @@ import {
     ID_COURSE_PRESENTER, ID_SCORE_PRESENTER, ID_HONOR_PRESENTER,
     ID_ABSENCE_PRESENTER,
     ID_COURSE_SECTION_PRESENTER, ID_VOLUNTEER_HOURS_PRESENTER,
-
+    ID_STUDENT_COURSE_SECTION_PRESENTER
 } from './types';
 import { ID_NOTICE_SERVICE, ID_NOTICE_PRESENTER } from "~/types";
 import { INoticeService } from "~/domain/boundaries/notice-service";
@@ -65,6 +65,7 @@ import { AbsencePresenter } from './domain/presenters/absence-presenter';
 import { absenceServiceImpl } from './infrastructure/services/absence-service-impl';
 import { HonorPresenter } from '~/domain/presenters/honor-presenter';
 import { VolunteerHoursPresenter } from '~/domain/presenters/volunteer-hours-presenter';
+import { StudentCourseSectionPresenter } from '~/domain/presenters/student-course-section-presenter';
 
 const container = new Container();
 container.bind<ILoginService>(ID_LOGIN_SERVICE).to(LoginServiceImpl).inSingletonScope();
@@ -103,6 +104,7 @@ container.bind<NoticePresenter>(ID_NOTICE_PRESENTER).to(NoticePresenter).inSingl
 container.bind<AbsencePresenter>(ID_ABSENCE_PRESENTER).to(AbsencePresenter).inSingletonScope();
 container.bind<AbsenceService>(ID_ABSENCE_SERVICE).to(absenceServiceImpl).inSingletonScope();
 container.bind<HonorPresenter>(ID_HONOR_PRESENTER).to(HonorPresenter).inSingletonScope();
+container.bind<StudentCourseSectionPresenter>(ID_STUDENT_COURSE_SECTION_PRESENTER).to(StudentCourseSectionPresenter).inSingletonScope();
 
 container.bind<VolunteerHoursPresenter>(ID_VOLUNTEER_HOURS_PRESENTER).to(VolunteerHoursPresenter).inSingletonScope();
 

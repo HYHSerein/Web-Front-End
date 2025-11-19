@@ -109,6 +109,11 @@ const routes = [
     name: "VolunteerHours",
     component: () => import("~/components/VolunteerHours/index.vue"),
   },
+  {
+    path: "/studentCourseSection",
+    name: "StudentCourseSection",
+    component: () => import("~/components/StudentCourseSection/index.vue"),
+  }
 ];
 //路由创建
 const router = createRouter({

@@ -35,3 +35,4 @@ export const ID_HONOR_PRESENTER = Symbol('ID_HONOR_PRESENTER');
 export const ID_NOTICE_SERVICE = Symbol('ID_NOTICE_SERVICE');
 export const ID_NOTICE_PRESENTER = Symbol('ID_NOTICE_PRESENTER');
 export const ID_VOLUNTEER_HOURS_PRESENTER = Symbol('ID_VOLUNTEER_HOURS_PRESENTER');
+export const ID_STUDENT_COURSE_SECTION_PRESENTER = Symbol.for('StudentCourseSectionPresenter');

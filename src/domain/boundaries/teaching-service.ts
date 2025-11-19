@@ -1,7 +1,7 @@
 import { DataResponse } from "~/infrastructure/models/request";
 import { OptionItem } from "~/infrastructure/models/base";
 import { CourseItem, VolunteerHoursItem } from "~/domain/models/teaching";
-import { CourseSectionItem } from "~/domain/models/teaching";
+import { CourseSectionItem, StudentCourseSectionItem } from "~/domain/models/teaching";
 import { HonorItem } from "~/domain/models/teaching";
 export interface ITeachingService {
     getCourseList(numName: string | null): Promise<CourseItem[]>;
@@ -28,4 +28,7 @@ export interface ITeachingService {
     getVolunteerHoursList(numName: string | null): Promise<VolunteerHoursItem[]>;
     volunteerHoursDelete(volunteerId: number): Promise<DataResponse>;
     volunteerHoursSave(data: VolunteerHoursItem): Promise<DataResponse>;
+    // 原接口里追加一行
+    getStudentCourseSectionList(): Promise<StudentCourseSectionItem[]>;
+
 }

@@ -1,7 +1,7 @@
 import { DataResponse } from "~/infrastructure/models/request";
 import { OptionItem } from "~/infrastructure/models/base";
 import { CourseItem } from "~/domain/models/teaching";
-import { CourseSectionItem } from "~/domain/models/teaching";
+import { CourseSectionItem, StudentCourseSectionItem } from "~/domain/models/teaching";
 import { HonorItem } from "~/domain/models/teaching";
 import { IRequestService } from "~/infrastructure/boundaries/request-service";
 import { ITeachingService } from "~/domain/boundaries/teaching-service";
@@ -216,4 +216,14 @@ export class TeachingServiceImpl implements ITeachingService {
         const res = await this.requestService.generalRequest("/api/honor/getHonorLevelOptionList", null);
         return res.itemList as OptionItem[];
     }
+
+    // 放在 class TeachingServiceImpl 里
+    public async getStudentCourseSectionList(): Promise<StudentCourseSectionItem[]> {
+        const res = await this.requestService.generalRequest(
+            '/api/studentCourseSection/getStudentCourseSectionList',
+            {}
+        );
+        return res.data as StudentCourseSectionItem[];
+    }
+
 }

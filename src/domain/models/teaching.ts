@@ -100,3 +100,13 @@ export interface VolunteerHoursData {
     dataList: VolunteerHoursItem[];
     studentList: OptionItem[];
 }
+
+export interface StudentCourseSectionItem {
+    studentCourseSectionId: number;
+    courseSectionId: number;
+    personId: number;
+    time: number;       // 三位整数 1d0s
+    teacherName: string;
+    place: string;
+    courseName: string;
+}
