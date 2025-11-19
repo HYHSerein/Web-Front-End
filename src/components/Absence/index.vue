@@ -114,7 +114,7 @@
                             </div>
                         </template>
                     </el-table-column>
-                    <el-table-column label="操作" width="180">
+                    <el-table-column label="操作" width="100" align="center">
                         <template v-slot="scope">
                             <div class="table-actions">
                                 <el-button type="danger" size="small" @click="deleteItem(scope.$index)"

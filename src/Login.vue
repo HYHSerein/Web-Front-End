@@ -40,11 +40,15 @@
           </div>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" class="login-button" @click="loginSubmit()">登录</el-button>
+          <div class="button-col">
+            <el-button type="primary" class="login-button" @click="loginSubmit">
+            登录
+            </el-button>
+            <el-button type="text" @click="forgetPassword" size="small" class="forget-btn">
+            忘记密码
+            </el-button>
+          </div>
         </el-form-item>
-        <el-button type="text" @click="forgetPassword" size="small" class="forget-btn">
-          忘记密码
-        </el-button>
       </el-form>
     </div>
   </div>
@@ -894,4 +898,20 @@ const loginSubmit = async () => {
 .el-dialog-fade-leave-active {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
+.button-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 水平居中 */
+  gap: 8px;              /* 两按钮间距 */
+  width: 100%;
+}
+
+
+
+.forget-btn {
+  font-size: 12px;
+  margin: 0;             /* 去掉默认 margin */
+}
+
 </style>
