@@ -42,7 +42,7 @@
                         <div class="media-card">
                             <h4 class="media-card-title">功能演示视频</h4>
                             <div class="video-wrapper">
-                                <video src="/app/video.mp4" controls autoplay muted type="video/mp4" preload="auto"
+                                <video src="/app/DemoVideo.mp4" controls autoplay muted type="video/mp4" preload="auto"
                                     class="demo-video">
                                     您的浏览器不支持视频播放
                                 </video>
@@ -226,7 +226,10 @@ const imageUrl = [
     { url: "/app/img1.jpg" },
     { url: "/app/img2.jpg" },
     { url: "/app/img3.jpg" },
-    { url: "/app/img4.jpg" }
+    { url: "/app/img4.jpg" },
+    { url: "/app/img5.jpg" },
+    { url: "/app/img6.jpg" },
+    { url: "/app/img7.jpg" }
 ];
 </script>
 

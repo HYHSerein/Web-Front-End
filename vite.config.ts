@@ -24,7 +24,8 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: "D:/teach-2025/java-server-submit/src/main/resources/public",
+    // outDir: "D:/teach-2025/java-server-submit/src/main/resources/public",
+    outDir: "/teach/web/java-server/src/main/resources/public",
   },
   css: {
     preprocessorOptions: {
